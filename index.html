@@ -97,7 +97,7 @@
     <div class="main-container">
       <div class="game-container">
         <div class="input-container">
-          <input type="number" id="guess-number" />
+          <input type="number" id="guess-number"/>
         </div>
         <div class="guess-button">
           <button onclick="GuessNumber()">Guess</button>
@@ -105,9 +105,18 @@
       </div>
     </div>
     <script>
+        let Sguess=Math.floor(Math.random()*10);
+        console.log(Sguess);
+        let Uguess=document.querySelector('#guess-number').value;
+        let Chance=4;
+
         function GuessNumber()
         {
-            console.log("I am GuessNumber function");
+            for(i=1;i<=Chance;i++)
+        {
+            
+        }
+            
         }
     </script>
   </body>
