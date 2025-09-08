@@ -73,7 +73,7 @@
           flex-direction: column;
         }
         .welcome-container h1 {
-          font-size:30px;
+          font-size: 30px;
         }
         .image-container {
           display: flex;
@@ -97,27 +97,56 @@
     <div class="main-container">
       <div class="game-container">
         <div class="input-container">
-          <input type="number" id="guess-number"/>
+          <input type="number" id="guess-number" />
         </div>
         <div class="guess-button">
           <button onclick="GuessNumber()">Guess</button>
         </div>
       </div>
+      <p id="result"></p>
     </div>
     <script>
-        let Sguess=Math.floor(Math.random()*10);
+      let chances = 4;
+      let Sguess = Math.floor(Math.random() * 10);
+      let Result=document.getElementById('result')
+      Sguess = parseInt(Sguess);
+      function GuessNumber() {
+        let Uguess = document.querySelector("#guess-number").value;
+        Uguess=parseInt(Uguess);
+        if(chances>0)
+      {
         console.log(Sguess);
-        let Uguess=document.querySelector('#guess-number').value;
-        let Chance=4;
+        if(Uguess===Sguess)
+      {
+        console.log("Congratulations!!You Won Game!!!");
+        Result.textContent="Congratulations!!You Won Game!!!";
+        
+      }
+      else if(Uguess>Sguess)
+      {
+        console.log("To High!!!");
+        Result.textContent="To High!!!"
+        chances--;
 
-        function GuessNumber()
-        {
-            for(i=1;i<=Chance;i++)
-        {
+      }else
+      {
+        console.log("To Low!!!");
+        Result.textContent="To Low!!!"
+        chances--;
+      }
+      if(Uguess===Sguess)
+      {
+        chances=0;
+      }else if(chances===0)
+      {
+        console.log("You Lost the game!!!");
+        Result.textContent="You Lost the game!!!"
+      }
 
-        }
-            
-        }
+
+      }
+        
+      }
     </script>
   </body>
 </html>
